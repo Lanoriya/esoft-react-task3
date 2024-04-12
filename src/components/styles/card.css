@@ -1,4 +1,5 @@
 .card-item {
+  margin-top: 16px;
   display: flex;
   gap: 20px;
 }
@@ -6,7 +7,6 @@
 .card-about {
   display: flex;
   flex-direction: column;
-  border: 2px solid #fff;
   align-items: center;
 }
 
@@ -19,14 +19,25 @@
   width: 350px;
 }
 
+.competencies-container {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .competencies-block {
   display: flex;
+  max-width: 80%;
   gap: 20px;
   background: rgb(35, 38, 40);
   border: 2px solid #fff;
 }
 
 .competencies-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 8px;
 }
 
@@ -37,4 +48,11 @@
 .competencies-item p {
   font-size: 24px;
   color: rgb(170, 170, 170);
+}
+
+.btnShow {
+  width: 200px;
+  padding: 16px;
+  font-size: 18px;
+  background: #000;
 }
