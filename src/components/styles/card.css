@@ -1,0 +1,40 @@
+.card-item {
+  display: flex;
+  gap: 20px;
+}
+
+.card-about {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #fff;
+  align-items: center;
+}
+
+.card-about h1 {
+  text-align: center;
+  padding: 8px 16px;
+}
+
+.card-img {
+  width: 350px;
+}
+
+.competencies-block {
+  display: flex;
+  gap: 20px;
+  background: rgb(35, 38, 40);
+  border: 2px solid #fff;
+}
+
+.competencies-item {
+  padding: 8px;
+}
+
+.competencies-item h2{
+  color: #fff;
+}
+
+.competencies-item p {
+  font-size: 24px;
+  color: rgb(170, 170, 170);
+}
