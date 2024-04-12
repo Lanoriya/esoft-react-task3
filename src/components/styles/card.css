@@ -50,9 +50,14 @@
   color: rgb(170, 170, 170);
 }
 
-.btnShow {
+button {
   width: 200px;
   padding: 16px;
   font-size: 18px;
   background: #000;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 20px;
 }
