@@ -5,6 +5,10 @@
   color: #fff;
 }
 
+#root {
+  position: relative;
+}
+
 body {
   background: #181a1b;
 }
