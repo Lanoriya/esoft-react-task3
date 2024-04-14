@@ -1,7 +1,7 @@
 .card-item {
   padding-top: 16px;
   display: flex;
-  gap: 20px;
+  grid-gap: 20px;
 }
 
 .card-about {
@@ -23,13 +23,13 @@
   display: flex;
   width: 60%;
   flex-direction: column;
-  gap: 20px;
+  grid-gap: 20px;
 }
 
 .competencies-block {
   display: flex;
   max-width: 80%;
-  gap: 20px;
+  grid-gap: 20px;
   background: rgb(35, 38, 40);
   border: 2px solid #fff;
 }
@@ -37,12 +37,14 @@
 .competencies-item {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  grid-gap: 20px;
   padding: 8px;
 }
 
-.competencies-item h2 {
-  color: #fff;
+.competencies-item {
+  h2 {
+    color: #fff;
+  }
 }
 
 .competencies-item p {
@@ -59,7 +61,7 @@ button {
 
 .filter-buttons {
   display: flex;
-  gap: 20px;
+  grid-gap: 20px;
 }
 
 .form-container {
@@ -79,7 +81,7 @@ button {
   position: relative;
   display: flex;
   margin: 10% auto;
-  gap: 20px;
+  grid-gap: 20px;
   flex-direction: column;
   label {
     display: flex;

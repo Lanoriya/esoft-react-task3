@@ -47,11 +47,18 @@ export function Card({ about, }) {
     localStorage.setItem('competence', JSON.stringify(updatedCompetence));
   };
 
-  const handleAddCompetence = (newCompetence) => {
+  const handleAddCompetence = (newCompetence, listName) => {
     const updatedCompetence = {
-      canNow: [...competenceData.canNow, newCompetence],
+      canNow: competenceData.canNow,
       canLater: competenceData.canLater
     };
+
+    if (listName === 'canNow') {
+      updatedCompetence.canNow = [...competenceData.canNow, newCompetence];
+    } else {
+      updatedCompetence.canLater = [...competenceData.canLater, newCompetence];
+    }
+
     setCompetenceData(updatedCompetence);
 
     localStorage.setItem('competence', JSON.stringify(updatedCompetence));

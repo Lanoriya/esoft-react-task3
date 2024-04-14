@@ -10,8 +10,9 @@ export function FilterButtons({ handleFilter }) {
         Показать компетенции (меньше 50%)
       </button>
       <button className='btnReset' onClick={() => handleFilter(null, 'reset')}>
-        Сбросить фильтр
+        Показать всё
       </button>
+      <button onClick={() => {localStorage.clear(); location.reload()}}>Вернуть всё</button>
     </div>
   );
 }

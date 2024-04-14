@@ -3,9 +3,9 @@ export function FilterCompetencies({ competencies, filterLevel }) {
     if (filterLevel === null) {
       return true;
     } else if (filterLevel > 0) {
-      return item.level > filterLevel;
+      return item.level >= filterLevel;
     } else {
-      return item.level < -filterLevel;
+      return item.level <= -filterLevel;
     }
   });
 }

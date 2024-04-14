@@ -15,7 +15,7 @@ export function NewCompetency({ onAddCompetence, setShowForm }) {
     });
   };
 
-  const handleCreateCompetence = () => {
+  const handleCreateCompetence = (listName) => {
     if (newCompetence.name && newCompetence.description && newCompetence.level) {
       const newId = Date.now();
       const newCompetenceItem = {
@@ -25,14 +25,15 @@ export function NewCompetency({ onAddCompetence, setShowForm }) {
         level: parseInt(newCompetence.level)
       };
 
-      // Вызываем колбэк, передавая новую компетенцию
-      onAddCompetence(newCompetenceItem);
+      // Вызываем колбэк, передавая новую компетенцию и имя списка
+      onAddCompetence(newCompetenceItem, listName);
 
       setNewCompetence({
         name: '',
         description: '',
         level: ''
       });
+      setShowForm(false);
     } else {
       alert('Пожалуйста, заполните все поля формы');
     }
@@ -40,7 +41,7 @@ export function NewCompetency({ onAddCompetence, setShowForm }) {
 
   return (
     <div className='form-container'>
-      <form className='form-competency' onSubmit={(e) => { e.preventDefault(); handleCreateCompetence(); }}>
+      <form className='form-competency'>
         <label>
           Название компетенции:
           <input type="text" name="name" value={newCompetence.name} onChange={handleInputChange} required />
@@ -53,10 +54,9 @@ export function NewCompetency({ onAddCompetence, setShowForm }) {
           Уровень компетенции (0-100%):
           <input type="number" name="level" min="0" max="100" value={newCompetence.level} onChange={handleInputChange} required />
         </label>
-        <button type="submit">Создать</button>
-        <span
-          className='delete-competence'
-          onClick={() => {setShowForm(false)}}>❌</span>
+        <button type="button" onClick={() => handleCreateCompetence('canNow')}>Добавить в имеющиеся навыки</button>
+        <button type="button" onClick={() => handleCreateCompetence('canLater')}>Добавить в будущие навыки</button>
+        <span className='delete-competence' onClick={() => setShowForm(false)}>❌</span>
       </form>
     </div>
   );
