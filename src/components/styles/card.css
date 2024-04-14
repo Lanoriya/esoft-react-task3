@@ -100,3 +100,8 @@ button {
   top: -30px;
   cursor: pointer;
 }
+
+.form-btns {
+  display: flex;
+  grid-gap: 20px;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export function NewCompetency({ onAddCompetence, setShowForm }) {
   const [newCompetence, setNewCompetence] = useState({
@@ -54,8 +54,10 @@ export function NewCompetency({ onAddCompetence, setShowForm }) {
           Уровень компетенции (0-100%):
           <input type="number" name="level" min="0" max="100" value={newCompetence.level} onChange={handleInputChange} required />
         </label>
-        <button type="button" onClick={() => handleCreateCompetence('canNow')}>Добавить в имеющиеся навыки</button>
-        <button type="button" onClick={() => handleCreateCompetence('canLater')}>Добавить в будущие навыки</button>
+        <div className='form-btns'>
+          <button type="button" onClick={() => handleCreateCompetence('canNow')}>Добавить в имеющиеся навыки</button>
+          <button type="button" onClick={() => handleCreateCompetence('canLater')}>Добавить в будущие навыки</button>
+        </div>
         <span className='delete-competence' onClick={() => setShowForm(false)}>❌</span>
       </form>
     </div>

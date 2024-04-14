@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/card.css';
 import { PersonInfo } from './PersonInfo';
 import { CompetencyList } from './CompetencyList';

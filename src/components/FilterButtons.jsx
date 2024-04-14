@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function FilterButtons({ handleFilter }) {
   return (
     <div className='filter-buttons'>
