@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/card.css';
 
-export function CompetencyList({ competence }) {
+export function CompetencyList({ competence, onDeleteCompetency }) {
   const { canNow, canLater } = competence;
   
   return (
@@ -13,6 +13,7 @@ export function CompetencyList({ competence }) {
             <h3>{competency.name}</h3>
             <p>{competency.description}</p>
             <p>Level: {competency.level}%</p>
+            <button onClick={() => onDeleteCompetency(competency.id)}>Удалить</button>
           </div>
         ))}
       </div>
@@ -23,6 +24,7 @@ export function CompetencyList({ competence }) {
             <h3>{competency.name}</h3>
             <p>{competency.description}</p>
             <p>Level: {competency.level}%</p>
+            <button onClick={() => onDeleteCompetency(competency.id)}>Удалить</button>
           </div>
         ))}
       </div>

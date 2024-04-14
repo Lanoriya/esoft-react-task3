@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/card.css';
 import { PersonInfo } from './PersonInfo';
 import { CompetencyList } from './CompetencyList';
 import { FilterButtons } from './FilterButtons';
-import { ButtonShow } from './ButtonShow'
+import { ButtonShow } from './ButtonShow';
 import { FilterCompetencies } from './FilterCompetencies';
 
 export function Card({ about }) {
   const { name, photo, competence } = about;
   const [showCompetencies, setShowCompetencies] = useState(false);
   const [filterLevel, setFilterLevel] = useState(null);
+  const [competenceData, setCompetenceData] = useState(null);
+
+  useEffect(() => {
+    const storedCompetence = JSON.parse(localStorage.getItem('competence'));
+    if (storedCompetence) {
+      setCompetenceData(storedCompetence);
+    } else {
+      setCompetenceData(competence);
+    }
+  }, [competence]);
 
   const toggleCompetencies = () => {
     setShowCompetencies(!showCompetencies);
@@ -25,8 +35,18 @@ export function Card({ about }) {
     }
   };
 
-  const filteredCanNow = FilterCompetencies({ competencies: competence.canNow, filterLevel });
-  const filteredCanLater = FilterCompetencies({ competencies: competence.canLater, filterLevel });
+  const handleDeleteCompetency = (competencyId) => {
+    const updatedCompetence = {
+      canNow: competenceData.canNow.filter(competency => competency.id !== competencyId),
+      canLater: competenceData.canLater.filter(competency => competency.id !== competencyId)
+    };
+    setCompetenceData(updatedCompetence);
+
+    localStorage.setItem('competence', JSON.stringify(updatedCompetence));
+  };
+
+  const filteredCanNow = FilterCompetencies({ competencies: competenceData?.canNow || [], filterLevel });
+  const filteredCanLater = FilterCompetencies({ competencies: competenceData?.canLater || [], filterLevel });
 
   return (
     <div className='card-item'>
@@ -34,8 +54,13 @@ export function Card({ about }) {
       <div className='competencies-container'>
         <FilterButtons handleFilter={handleFilter} />
         <ButtonShow onClick={toggleCompetencies} showCompetencies={showCompetencies} />
-        {showCompetencies && <CompetencyList competence={{ canNow: filteredCanNow, canLater: filteredCanLater }} />}
+        {showCompetencies && 
+          <CompetencyList 
+            competence={{ canNow: filteredCanNow, canLater: filteredCanLater }} 
+            onDeleteCompetency={handleDeleteCompetency} 
+          />
+        }
       </div>
     </div>
   );
-};
+}
