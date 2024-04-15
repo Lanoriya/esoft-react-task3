@@ -10,9 +10,11 @@
   align-items: center;
 }
 
-.card-about h1 {
-  text-align: center;
-  padding: 8px 16px;
+.card-about {
+  h1 {
+    text-align: center;
+    padding: 8px 16px;
+  }
 }
 
 .card-img {
